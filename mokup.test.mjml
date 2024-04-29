@@ -1,0 +1,699 @@
+<mjml>
+  <mj-head>
+    <mj-title>VIVA AEROBUS</mj-title>
+
+    <mj-breakpoint width="375px" />
+
+    <mj-font
+      name="Lato"
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+    />
+
+    <mj-font
+      name="Poppins"
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+    />
+
+    <mj-attributes>
+      <mj-class
+        name="main-section"
+        background-color="#F6F6F6"
+        padding-top="15px"
+        padding-bottom="15px"
+      />
+      <mj-class
+        name="main-title"
+        color="#00853F"
+        font-family="Lato, Arial, sans-serif"
+        font-weight="700"
+        font-size="12px"
+        line-height="14px"
+      />
+      <mj-class
+        name="main-cta"
+        background-color="#FF4D29"
+        font-family="Poppins, Arial, sans-serif"
+        font-weight="600"
+        font-size="14px"
+        line-height="21px"
+      />
+      <mj-class
+        name="main-terms"
+        font-family="Lato, Arial, sans-serif;"
+        font-weight="500"
+        font-size="12px"
+        line-height="14px"
+      />
+      <mj-class
+        name="header"
+        color="#002612"
+        font-family="Lato, Arial, sans-serif;"
+        font-weight="700"
+        font-size="23px"
+        line-height="23px"
+      />
+      <mj-class
+        name="subheader"
+        color="#002612"
+        font-family="Lato, Arial, sans-serif"
+        font-weight="700"
+        font-size="16px"
+        line-height="14px"
+      />
+      <mj-class
+        name="paragraph"
+        color="#454545"
+        font-family="Lato, Arial, sans-serif"
+        font-weight="400"
+        font-size="10px"
+        line-height="12px"
+      />
+      <mj-class
+        name="alert-text"
+        font-family="Lato, Arial, sans-serif"
+        font-weight="400"
+        font-size="14px"
+        line-height="17px"
+        color="#002612"
+      />
+      <mj-class
+        name="cta-success"
+        font-family="Poppins, Arial, sans-serif"
+        font-weight="600"
+        font-size="16px"
+        line-height="24px"
+        color="#FFFFFF"
+        background-color="#00853F"
+        border-radius="10px"
+      />
+      <mj-class
+        name="cta-primary"
+        font-family="Poppins, Arial, sans-serif"
+        font-weight="600"
+        font-size="16px"
+        line-height="24px"
+        color="#FFFFFF"
+        background-color="#FF4D29"
+        border-radius="10px"
+      />
+      <mj-class
+        name="title"
+        font-family="Poppins, Arial, sans-serif"
+        font-weight="600"
+        font-size="16px"
+        line-height="20px"
+        color="#454545"
+      />
+    </mj-attributes>
+
+    <mj-style>
+      .flight_name, .flight_city, .flight_airport, .flight_hour { font-family:
+      'Lato', Arial, sans-serif; font-weight: 700; color: #002612; }
+      .flight_airport, .flight_hour, .flight_caption { font-size: 10px;
+      line-height: 13px; } .flight_airport { color: #797979; } .flight_name {
+      font-size: 18px; line-height: 22px; } .flight_city { font-size: 12px;
+      line-height: 13px; } .flight_caption { color: #FF0000; } .pa-0 { padding:
+      0 !important; } .ma-0 { margin: 0 !important; } .reservation {
+      font-family: 'Lato', Arial, sans-serif; font-weight: 400; font-size: 14px;
+      line-height: 17px; color: #797979; } .hotel_name { font-family: 'Lato',
+      Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 17px;
+      color: #454545; } .hotel_price { font-family: 'Poppins', Arial,
+      sans-serif; font-weight: 700; font-size: 16px; line-height: 24px; color:
+      #00853F; } .msi_pymt { font-family: 'Lato', Arial, sans-serif;
+      font-weight: 400; font-size: 12px; line-height: 14px; color: #797979; }
+      .hotel_rate { font-family: 'Lato', Arial, sans-serif; font-weight: 700;
+      font-size: 12px; line-height: 14px; color: #00853F; text-align: right; }
+      .hotel_review { font-family: 'Lato', Arial, sans-serif; font-weight: 400;
+      font-size: 10px; line-height: 12px; color: #797979; text-align: right;
+      text-decoration: underline; text-underline-offset: 3px; }
+    </mj-style>
+
+    {%- capture postBody -%} { "checkIn":"2024-06-01", "checkOut":"2024-06-08",
+    "adultsNum":3, "childNum":1, "childrenAges":[3], "destination":"MEX",
+    "noRooms":1, "sortBy":"Price", "sortType":"ASC", "filters": { "stars": [4,5]
+    } } {%- endcapture -%} {%- connected_content
+    https://vivaaerobus.app.bidflyer.com/api/hotels/standalone/search :method
+    post :content_type application/json :body {{postBody}} :save hotels :retry
+    -%}
+  </mj-head>
+
+  <mj-body background-color="#FFFFFF" width="560px">
+    <!-- HEADER SECTION -->
+    <mj-section background-color="#FFFFFF" padding-bottom="0px">
+      <mj-group vertical-align="middle">
+        <mj-column vertical-align="middle">
+          <mj-image
+            src="https://braze-images.com/image_uploads/files/65fc8ec7913b32004bb7e900/original.png?1711050439"
+            alt="Logo Viva Aerobus"
+            align="left"
+          />
+        </mj-column>
+        <mj-column>
+          <mj-text
+            font-size="12px"
+            color="#454545"
+            font-weight="400"
+            padding-bottom="0"
+            align="right"
+            font-family="Lato, Arial, sans-serif"
+          >
+            Código de reserva
+          </mj-text>
+          <mj-text
+            font-size="24px"
+            color="#00853F"
+            font-weight="600"
+            text-decoration="underline"
+            font-family="Poppins, Arial, sans-serif"
+            align="right"
+          >
+            F8B4QW
+          </mj-text>
+        </mj-column>
+      </mj-group>
+    </mj-section>
+    <!-- END HEADER -->
+
+    <!-- HEADER DOTERS -->
+    <mj-section padding="0">
+      <mj-column width="100%">
+        <mj-table padding-top="0" padding-bottom="0" vertical-align="middle">
+          <tr
+            align="right"
+            vertical-align="middle"
+            style="padding: 0; margin: 0"
+          >
+            <td
+              vertical-align="middle"
+              style="
+                padding-right: 5px;
+                padding-top: 6px;
+                padding-bottom: 4px;
+                margin: 0;
+                font-family: Poppins, sans-serif;
+                font-size: 10px;
+                line-height: 15px;
+              "
+            >
+              Hola Jair León, tienes
+              <span style="font-weight: 600; color: #004951">123,456</span>
+              puntos
+            </td>
+            <td width="55px" vertical-align="middle" style="padding: 5px 0">
+              <img
+                width="55"
+                height="21"
+                src="https://braze-images.com/image_uploads/files/65fc8ec6913b32004bb7e8fc/original.png?1711050438"
+                style="vertical-align: middle"
+                alt="Doters"
+              />
+            </td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+    <!-- END HEADER DOTERS -->
+
+    <!-- MENU -->
+    <mj-section mj-class="main-section">
+      <mj-column width="100%" vertical-align="middle" padding="0">
+        <mj-table padding="0" mj-class="nav-bar" align="right">
+          <tr
+            style="
+              text-align: center;
+              vertical-align: middle;
+              padding: 0;
+              font-weight: 600;
+            "
+          >
+            <td width="33.33%" style="padding-top: 6px; padding-bottom: 6px">
+              Viva Fan
+            </td>
+            <td
+              width="33.33%%"
+              style="
+                padding-top: 6px;
+                padding-bottom: 6px;
+                border-left: 1.5px solid #c2ff4b;
+                border-right: 1.5px solid #c2ff4b;
+              "
+            >
+              Promociones
+            </td>
+            <td width="33.33%%" style="padding-top: 6px; padding-bottom: 6px">
+              Viva Viajes
+            </td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+    <!-- END OF MENU -->
+
+    <!-- MAIN -->
+    <!-- FLIGHT INFO -->
+    <mj-section mj-class="main-section">
+      <mj-column width="100%">
+        <mj-table width="100%" padding-bottom="0">
+          <tr>
+            <td
+              width="50%"
+              style="
+                background: #004a23;
+                padding: 0px 30px;
+                font-family: Lato, Arial, sans-serif;
+                font-weight: 700;
+                font-size: 23px;
+                text-align: left;
+                line-height: 28px;
+                color: #ffffff;
+              "
+            >
+              Descubre los hoteles que tenemos en
+              <span style="color: #38ac49">Cd. de Mexico</span>
+            </td>
+            <td width="50%" style="text-align: center">
+              <img
+                width="100%"
+                height="100%"
+                fluid-on-mobile="true"
+                style="vertical-align: middle"
+                src="https://braze-images.com/image_uploads/files/65fc8ec5913b32004bb7e8fa/original.png?1711050437"
+              />
+            </td>
+          </tr>
+        </mj-table>
+        <mj-table width="100%" padding-top="0" padding-bottom="0">
+          <tr style="background: #e5e5e5">
+            <td
+              style="
+                text-align: center;
+                padding: 10px 0;
+                color: #454545;
+                font-family: Lato, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+              "
+            >
+              VB1280
+            </td>
+          </tr>
+        </mj-table>
+        <mj-table padding-top="0" padding-bottom="0" width="100%">
+          <tr
+            style="
+              background-color: #ffffff;
+              border-left: 1px solid #e5e5e5;
+              border-right: 1px solid #e5e5e5;
+              border-bottom: 1px solid #e5e5e5;
+            "
+          >
+            <td style="padding-left: 50px; vertical-align: middle">
+              <table width="100%">
+                <tbody>
+                  <tr>
+                    <td width="100%" style="padding-bottom: 5px">
+                      <p class="flight_name ma-0">MEX</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="100%">
+                      <p class="flight_city ma-0">Cd. de México</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="100%" style="padding-bottom: 5px">
+                      <p class="flight_airport ma-0">Benito Juarez</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="100%">
+                      <p class="flight_hour ma-0">04:32 AM</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td style="text-align: center; padding: 0 15px 0 15px">
+              <img
+                width="48"
+                src="https://braze-images.com/image_uploads/files/65fc8ec5913b32004bb7e8fb/original.png?1711050437"
+                style="margin: 0 auto; padding: 0; vertical-align: middle"
+              />
+            </td>
+            <td style="padding-right: 50px; vertical-align: middle">
+              <table width="100%" style="vertical-align: middle">
+                <tbody>
+                  <tr>
+                    <td width="100%" style="padding-bottom: 5px">
+                      <p class="flight_name ma-0">GDL</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="100%">
+                      <p class="flight_city ma-0">Guadalajara</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      width="100%"
+                      style="padding-bottom: 5px; padding-top: 5px"
+                    >
+                      <p class="flight_airport ma-0"></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="100%">
+                      <p class="flight_hour ma-0">04:32 AM</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+    <!-- END OF FLIGHT INFO -->
+
+    <!-- HOTELS -->
+    <mj-section mj-class="main-section">
+      <mj-column width="100%" padding="0">
+        <mj-text mj-class="header" padding-bottom="0">
+          Visita Cd. de México y hospédate en los mejores Hoteles
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- CONNECTED CONTENT -->
+    <mj-section mj-class="main-section">
+      <mj-column width="100%">
+        <!-- FIRST ROW -->
+        <mj-table width="100%">
+          <tr style="vertical-align: top">
+            <!-- LIQUID -->
+            {%- for hotel in hotels limit: 2 -%}
+            <td width="47%">
+              <table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="100%" align="center">
+                    <a
+                      href="https://www.vivaaerobus.com/es-mx/bidflyer#bidflyer/hotels/id/{{hotel.hotelToken}}"
+                    >
+                      <img
+                        width="100%"
+                        src="{{hotel.images[0].urls.Thumbnail}}"
+                      />
+                    </a>
+                    <table width="100%">
+                      <tbody>
+                        <tr align="center" style="vertical-align: top">
+                          <td width="70%" style="padding: 10px 0">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                              <tbody>
+                                <tr>
+                                  <td class="reservation">
+                                    Reserva habitación en
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="hotel_name">
+                                    {{hotel.propertyName}}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="hotel_price">
+                                    ${{hotel.totalPrice}}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="msi-pymt">
+                                    Hasta 9 MSI - Oferta especial
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                          <td width="30%" style="padding: 10px 0">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                              <tbody>
+                                <tr>
+                                  <td class="hotel_rate">
+                                    <span>&#9733; {{hotel.starsRank}}</span>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="6%"></td>
+            {%- endfor -%}
+            <!-- END LIQUID -->
+          </tr>
+        </mj-table>
+        <!-- END FIRST ROW-->
+
+        <!-- SECOND ROW-->
+        <mj-table width="100%">
+          <tr style="vertical-align: top">
+            <!-- LIQUID -->
+            {%- for hotel in hotels limit: 2 offset: 2 -%}
+            <td width="47%">
+              <table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="100%" align="center">
+                    <a
+                      href="https://www.vivaaerobus.com/es-mx/bidflyer#bidflyer/hotels/id/{{hotel.hotelToken}}"
+                    >
+                      <img
+                        width="100%"
+                        src="{{hotel.images[0].urls.Thumbnail}}"
+                      />
+                    </a>
+                    <table width="100%">
+                      <tbody>
+                        <tr align="center" style="vertical-align: top">
+                          <td width="70%" style="padding: 10px 0">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                              <tbody>
+                                <tr>
+                                  <td class="reservation">
+                                    Reserva habitación en
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="hotel_name">
+                                    {{hotel.propertyName}}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="hotel_price">
+                                    ${{hotel.totalPrice}}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="msi-pymt">
+                                    Hasta 9 MSI - Oferta especial
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                          <td width="30%" style="padding: 10px 0">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                              <tbody>
+                                <tr>
+                                  <td class="hotel_rate">
+                                    <span>&#9733; {{hotel.starsRank}}</span>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="6%"></td>
+            {%- endfor -%}
+            <!-- END LIQUID -->
+          </tr>
+        </mj-table>
+        <!-- END SECOND ROW-->
+      </mj-column>
+    </mj-section>
+    <!-- END OF CONNECTED CONTENT -->
+    <!-- END OF HOTELS -->
+    <!-- END OF MAIN -->
+
+    <!-- FOOTER -->
+    <!-- TERMS AND CONDITIONS -->
+    <mj-section mj-class="main-section">
+      <mj-column width="100%">
+        <mj-text
+          font-family="Lato, sans-serif"
+          font-weight="700"
+          font-size="12px"
+          line-height="14px"
+          color="#454545"
+          padding-bottom="0"
+        >
+          Términos y condiciones
+        </mj-text>
+        <mj-text mj-class="terms">
+          •Promoción Vuela más con Doble Puntaje Doters: Tarifa mostrada aplica
+          únicamente en Tarifa Zero, vuelo sencillo. La tarifa no incluye el
+          cargo por la TUA (Tarifa de uso aeroportuario) de $472.12 mxn
+          correspondiente al tramo Puerto Vallarta - Toluca.
+        </mj-text>
+        <mj-text mj-class="terms">
+          •Promoción Oferta de inicio de año: Tarifa mostrada aplica únicamente
+          en Tarifa Zero, vuelo sencillo. La tarifa no incluye el cargo por la
+          TUA (Tarifa de uso aeroportuario) de $637.17 mxn correspondiente al
+          tramo CDMX - Veracruz.
+        </mj-text>
+        <mj-text mj-class="terms">
+          •Promoción Increíbles ciudades en USA te esperan: Tarifa mostrada
+          aplica únicamente en Tarifa Zero, vuelo sencillo. Las compras que se
+          realicen a vuelos internacionales expresados en dólares dentro del
+          territorio nacional, serán pagadas en pesos mexicanos al tipo de
+          cambio vigente en la fecha de compra. La tarifa no incluye el cargo
+          por la TUA (Tarifa de uso aeroportuario) de $59.09 USD correspondiente
+          al tramo Monterrey - Huston.
+        </mj-text>
+        <mj-text mj-class="terms">
+          •Promoción Culiacán-Los Cabos: Tarifa mostrada aplica únicamente en
+          Tarifa Zero, vuelo sencillo. La tarifa no incluye el cargo por la TUA
+          (Tarifa de uso aeroportuario)
+        </mj-text>
+        <mj-text mj-class="terms">
+          La TUA podrá variar al momento del pago, consulta la TUA aplicable en:
+          <a
+            style="color: #00853f !important"
+            href="https://www.vivaaerobus.com/mx/info/precios-tua"
+            >https://www.vivaaerobus.com/mx/info/precios-tua</a
+          >. Consulta términos y condiciones en:
+          <a
+            style="color: #00853f !important"
+            href="https://www.vivaaerobus.comos-tua"
+            >https://www.vivaaerobus.comos-tua</a
+          >.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <!-- END TERMS OF SERVICE -->
+
+    <!-- DIVIDER -->
+    <mj-section padding="0" mj-class="main-section">
+      <mj-column padding="0">
+        <mj-divider
+          border-width="1px"
+          border-color="#E5E5E5"
+          width="90%"
+          padding="0"
+          align="center"
+        />
+      </mj-column>
+    </mj-section>
+    <!-- DIVIDER -->
+
+    <!-- SOCIAL NETWORKS -->
+    <mj-section padding-bottom="0" text-align="center" mj-class="main-section">
+      <mj-column width="100%">
+        <mj-social icon-size="24px">
+          <mj-social-element
+            src="http://cdn.mcauto-images-production.sendgrid.net/b1a0ea7d46ee9f25/dd442fad-f376-4f08-b5f7-a67091e70bc2/72x72.png"
+            href="https://www.facebook.com/VivaAerobus/"
+            alt="Facebook"
+          >
+          </mj-social-element>
+          <mj-social-element
+            src="http://cdn.mcauto-images-production.sendgrid.net/b1a0ea7d46ee9f25/ae3dd482-bd96-4d37-9f61-ce802426c5d7/72x72.png"
+            href="https://twitter.com/vivaaerobus"
+            alt="Twitter"
+          >
+          </mj-social-element>
+          <mj-social-element
+            src="http://cdn.mcauto-images-production.sendgrid.net/b1a0ea7d46ee9f25/4ce6d038-a403-4a32-9834-22db462eb511/72x72.png"
+            href="https://www.instagram.com/vivaaerobus"
+            alt="Instagram"
+          >
+          </mj-social-element>
+          <mj-social-element
+            src="http://cdn.mcauto-images-production.sendgrid.net/b1a0ea7d46ee9f25/449d8298-e912-4448-8eab-f26990fe93cb/72x72.png"
+            href="https://mx.linkedin.com/company/vivaaerobus"
+            alt="Linkedin"
+          >
+          </mj-social-element>
+        </mj-social>
+      </mj-column>
+    </mj-section>
+    <!-- END SOCIAL NETWORKS -->
+
+    <!-- SENDING BY VIVA -->
+    <mj-section padding-top="0" padding-bottom="0" mj-class="main-section">
+      <mj-column width="100%">
+        <mj-text
+          align="center"
+          color="#002612"
+          font-size="12px"
+          font-weight="700"
+          font-family="Lato, Arial, sans-serif"
+          padding-bottom="5px"
+        >
+          Enviado por Viva Aerobus
+        </mj-text>
+        <mj-text
+          align="center"
+          color="#454545"
+          font-size="12px"
+          font-weight="700"
+          font-family="Lato, Arial, sans-serif"
+          padding-bottom="5px"
+        >
+          Servicio al cliente
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <!-- END SENDING BY VIVA -->
+
+    <!-- VIVA PHONES NUMBERS -->
+    <mj-section padding-top="0" padding-bottom="40px" mj-class="main-section">
+      <mj-column width="100%">
+        <mj-text
+          align="center"
+          color="#454545"
+          font-size="14px"
+          font-weight="700"
+          font-family="Lato, Arial, sans-serif"
+          padding-bottom="5px"
+        >
+          México (LADA sin costo)
+          <span style="color: #00853f">81 82 150 150</span>
+        </mj-text>
+        <mj-text
+          align="center"
+          color="#454545"
+          font-size="14px"
+          font-weight="700"
+          font-family="Lato, Arial, sans-serif"
+          padding-top="0"
+        >
+          Estados Unidos 866 FLY VIVA
+          <span style="color: #00853f">(866 359 8482)</span>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <!-- END VIVA PHONES NUMBERS -->
+    <!-- END OF TERMS AND CONDITIONS -->
+    <!-- END OF FOOTER-->
+  </mj-body>
+</mjml>

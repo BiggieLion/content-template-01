@@ -1,0 +1,8 @@
+{
+  "type": "ERROR",
+  "action": "CANCEL",
+  "code": "ONE_CARD_EXCEPTION",
+  "message": "Error while making a request to OneCard",
+  "diagnosticInformation": "AxiosError: Request failed with status code 408\n    at settle (/var/task/webpack:/mp-redeem-svc-v2/node_modules/axios/dist/node/axios.cjs:1967:1)\n    at IncomingMessage.handleStreamEnd (/var/task/webpack:/mp-redeem-svc-v2/node_modules/axios/dist/node/axios.cjs:3062:1)\n    at IncomingMessage.emit (node:events:530:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)",
+  "parameters": []
+}

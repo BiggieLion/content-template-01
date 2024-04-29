@@ -113,6 +113,7 @@
       }
     </mj-style>
   </mj-head>
+
   <mj-body background-color="#FFFFFF" width="560px">
     <!-- HEADER -->
     <mj-section background-color="#FFFFFF" padding-bottom="0px">
@@ -573,3 +574,33 @@
 
   </mj-body>
 </mjml>
+
+
+{%- assign totalHotels = 1 -%}
+    
+    {%- capture postBody -%}
+    {
+      "checkIn":"2024-12-23",
+      "checkOut":"2025-01-02",
+      "adultsNum":2,
+      "childNum":0,
+      "childrenAges":[],
+      "destination":"MEX",
+      "noRooms":1,
+      "filters": {
+        "stars": [4,5],
+        "budget": [50,100000],
+        "freeCancellation": false
+      }
+    }
+    {%- endcapture -%}
+    
+    {%-
+      connected_content
+      https://vivaaerobus.app.bidflyer.com/api/hotels/standalone/search
+      :method post
+      :content_type application/json
+      :body {{postBody}}
+      :save hotels
+      :retry
+    -%}
